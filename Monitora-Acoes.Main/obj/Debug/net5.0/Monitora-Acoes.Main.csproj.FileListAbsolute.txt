@@ -1,0 +1,16 @@
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/Monitora-Acoes.Main
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/Monitora-Acoes.Main.deps.json
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/Monitora-Acoes.Main.runtimeconfig.json
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/Monitora-Acoes.Main.runtimeconfig.dev.json
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/Monitora-Acoes.Main.dll
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/ref/Monitora-Acoes.Main.dll
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/bin/Debug/net5.0/Monitora-Acoes.Main.pdb
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.csproj.AssemblyReference.cache
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.GeneratedMSBuildEditorConfig.editorconfig
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.AssemblyInfoInputs.cache
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.AssemblyInfo.cs
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.csproj.CoreCompileInputs.cache
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.dll
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/ref/Monitora-Acoes.Main.dll
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.pdb
+/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/obj/Debug/net5.0/Monitora-Acoes.Main.genruntimeconfig.cache
