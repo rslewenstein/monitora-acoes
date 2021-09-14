@@ -1,11 +1,117 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "FluentScheduler/5.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/FluentScheduler.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentScheduler.dll": {}
+        }
+      },
+      "HtmlAgilityPack/1.11.36": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {}
+        }
+      },
+      "Monitora-Acoes.Crawler/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FluentScheduler": "5.5.1",
+          "HtmlAgilityPack": "1.11.36"
+        },
+        "compile": {
+          "bin/placeholder/Monitora-Acoes.Crawler.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Monitora-Acoes.Crawler.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "FluentScheduler/5.5.1": {
+      "sha512": "OwehD7vZ1CFAboLPrfBTibz/FeKg8DK1h242u0Y050dbfcOlb+d4S/iGBNt/yHaHIhCsmPiQqQjG13e441xWLA==",
+      "type": "package",
+      "path": "fluentscheduler/5.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fluentscheduler.5.5.1.nupkg.sha512",
+        "fluentscheduler.nuspec",
+        "lib/netstandard2.0/FluentScheduler.dll",
+        "lib/netstandard2.0/FluentScheduler.xml",
+        "lib/netstandard2.1/FluentScheduler.dll",
+        "lib/netstandard2.1/FluentScheduler.xml",
+        "logo-200x200.png"
+      ]
+    },
+    "HtmlAgilityPack/1.11.36": {
+      "sha512": "dCuPhd6Mcdz0oyaSidPqZZiaKcVaBnIqCQlvgJx7Qr5PJAjSatSIVPmuOwpMjbtR8mqoXyUbWVKxuairGGauJg==",
+      "type": "package",
+      "path": "htmlagilitypack/1.11.36",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "htmlagilitypack.1.11.36.nupkg.sha512",
+        "htmlagilitypack.nuspec",
+        "lib/Net35/HtmlAgilityPack.dll",
+        "lib/Net35/HtmlAgilityPack.pdb",
+        "lib/Net35/HtmlAgilityPack.xml",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.XML",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.3/HtmlAgilityPack.dll",
+        "lib/netstandard1.3/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.xml",
+        "lib/netstandard1.6/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.6/HtmlAgilityPack.dll",
+        "lib/netstandard1.6/HtmlAgilityPack.pdb",
+        "lib/netstandard1.6/HtmlAgilityPack.xml",
+        "lib/netstandard2.0/HtmlAgilityPack.deps.json",
+        "lib/netstandard2.0/HtmlAgilityPack.dll",
+        "lib/netstandard2.0/HtmlAgilityPack.pdb",
+        "lib/netstandard2.0/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.XML",
+        "lib/uap10.0/HtmlAgilityPack.dll",
+        "lib/uap10.0/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
+    "Monitora-Acoes.Crawler/1.0.0": {
+      "type": "project",
+      "path": "../Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj",
+      "msbuildProject": "../Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "FluentScheduler >= 5.5.1",
+      "Monitora-Acoes.Crawler >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/home/rafael/.nuget/packages/": {}
@@ -31,7 +137,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj": {
+              "projectPath": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -43,6 +153,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "FluentScheduler": {
+            "target": "Package",
+            "version": "[5.5.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

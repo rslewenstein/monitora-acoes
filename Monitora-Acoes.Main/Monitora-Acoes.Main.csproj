@@ -6,4 +6,12 @@
     <RootNamespace>Monitora_Acoes.Main</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentScheduler" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Monitora-Acoes.Crawler\Monitora-Acoes.Crawler.csproj" />
+  </ItemGroup>
+
 </Project>

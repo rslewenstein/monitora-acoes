@@ -1,4 +1,6 @@
 ﻿using System;
+using FluentScheduler;
+using Monitora_Acoes.Crawler;
 
 namespace Monitora_Acoes.Main
 {
@@ -6,7 +8,8 @@ namespace Monitora_Acoes.Main
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            JobManager.Initialize(new ConfigurationCrawler());
+            Console.ReadLine();
         }
     }
 }

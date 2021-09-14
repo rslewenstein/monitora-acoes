@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EjpAPGLPTI1jv9A99VFdTNFS65jNnSPyvWj/hB1viWxDs99yMPNft4O4L/l4gI8lWYqqzx+LP2oFEBNGBYh5TA==",
+  "dgSpecHash": "IZYDdpounWRdl5+GX8sOKaXjms/FtQxRlgzSNIdZqdz6/8mrqc/gQvmpzU+lWmVnCYhxqfluOMyxpPwhcbOwZQ==",
   "success": true,
   "projectFilePath": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/Monitora-Acoes.Main.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/rafael/.nuget/packages/fluentscheduler/5.5.1/fluentscheduler.5.5.1.nupkg.sha512",
+    "/home/rafael/.nuget/packages/htmlagilitypack/1.11.36/htmlagilitypack.1.11.36.nupkg.sha512"
+  ],
   "logs": []
 }
