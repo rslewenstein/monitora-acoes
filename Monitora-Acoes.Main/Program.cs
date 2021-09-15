@@ -8,8 +8,15 @@ namespace Monitora_Acoes.Main
     {
         static void Main(string[] args)
         {
-            JobManager.Initialize(new ConfigurationCrawler());
-            Console.ReadLine();
+            // Deverá receber um ou mais códigos de ações e pesquisar.
+            // Talvez será necessário utilizar o Sleep
+            // e chamar o método direto na classe GetDataCrawler
+
+            // JobManager.Initialize(new ConfigurationCrawler());
+            // Console.ReadLine();
+
+            var gdc = new GetDataCrawler();
+            gdc.Execute();
         }
     }
 }
