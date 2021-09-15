@@ -8,8 +8,7 @@ namespace Monitora_Acoes.Crawler
 {
     public class GetDataCrawler
     {
-        private string stocks = "petr3, taee4, itsa4";
-        public void Execute()
+        public void Execute(string stocks)
         {
             var stock = CutText(stocks);
 
@@ -21,20 +20,28 @@ namespace Monitora_Acoes.Crawler
         {
             using (WebClient wcli = new WebClient())
             {
-                string google = wcli.DownloadString($"https://statusinvest.com.br/acoes/{stock}");
+                string site = wcli.DownloadString($"https://statusinvest.com.br/acoes/{stock}");
 
                 var html = new HtmlDocument();
-                html.LoadHtml(google);
-                var externalDiv = html.DocumentNode.SelectSingleNode("//*[@id='main-2']/div[2]/div/div[1]/div/div[1]");
-                var internalDiv = externalDiv.SelectNodes("//*[@id='main-2']/div[2]/div/div[1]/div/div[1]/div/div[1]/strong");
+                html.LoadHtml(site);
 
-                string price = null;
-                foreach (var node in internalDiv)
+                HtmlNode externalDiv = null;
+                externalDiv = html.DocumentNode.SelectSingleNode("//*[@id='main-2']/div[2]/div/div[1]/div/div[1]");
+                if (externalDiv == null)
                 {
-                    price = node.InnerHtml.ToString();
+                    Console.WriteLine(stock + ": não encontrada.");
+                }
+                else
+                {
+                    var internalDiv = externalDiv.SelectNodes("//*[@id='main-2']/div[2]/div/div[1]/div/div[1]/div/div[1]/strong");
+
+                    string price = null;
+                    foreach (var node in internalDiv)
+                        price = node.InnerHtml.ToString();
+
+                    Console.WriteLine(stock + ": R$" + price);
                 }
 
-                Console.WriteLine(stock + ": " + price);
             }
         }
 
