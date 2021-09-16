@@ -6,7 +6,7 @@ namespace Monitora_Acoes.Bot
 {
     public class ConfigBot
     {
-        private static TelegramBotClient botcli = new TelegramBotClient("1977380157:AAESASXTz_DdJMzKAILzImVe2W8VzH5nadg");
+        private static TelegramBotClient botcli = new TelegramBotClient("TOKEN");
         public void ExecuteBot(string stocks)
         {
             botcli.OnMessage += BotClient_OnMessage;
