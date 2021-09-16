@@ -1,21 +1,33 @@
 ﻿using System;
 using System.Threading;
+using Telegram.Bot;
 using FluentScheduler;
 using Monitora_Acoes.Crawler;
+using Monitora_Acoes.Bot;
 
 namespace Monitora_Acoes.Main
 {
     class Program
     {
+        private static TelegramBotClient botcli = new TelegramBotClient("TOKEN");
         static void Main(string[] args)
         {
             // JobManager.Initialize(new ConfigurationCrawler());
             // Console.ReadLine();
 
+            botcli.OnMessage += BotClient_OnMessage;
+
+            botcli.StartReceiving();
+            Thread.Sleep(Timeout.Infinite);
+            botcli.StopReceiving();
+
+
             //string stocks = "petr3, aaaa2, taee4, itsa4";
             Console.WriteLine("Digite os códigos separados por vírgula. \nEx: abcd1, efgh2 \nou digite apenas um código. \nEx: bbbb3");
             Console.WriteLine("");
             var stocks = Console.ReadLine();
+            // var bot = new ConfigBot();
+            // bot.ExecuteBot(stocks);
 
             while (string.IsNullOrEmpty(stocks))
             {
@@ -45,6 +57,11 @@ namespace Monitora_Acoes.Main
                 }
 
             }
+        }
+
+        private static void BotClient_OnMessage(object sender, Telegram.Bot.Args.MessageEventArgs e)
+        {
+            Console.WriteLine(e.Message.Text);
         }
     }
 }

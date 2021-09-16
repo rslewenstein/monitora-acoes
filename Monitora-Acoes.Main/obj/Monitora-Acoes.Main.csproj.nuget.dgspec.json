@@ -4,6 +4,64 @@
     "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Main/Monitora-Acoes.Main.csproj": {}
   },
   "projects": {
+    "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Bot/Monitora-Acoes.Bot.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Bot/Monitora-Acoes.Bot.csproj",
+        "projectName": "Monitora-Acoes.Bot",
+        "projectPath": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Bot/Monitora-Acoes.Bot.csproj",
+        "packagesPath": "/home/rafael/.nuget/packages/",
+        "outputPath": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Bot/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/rafael/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[16.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -88,6 +146,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Bot/Monitora-Acoes.Bot.csproj": {
+                "projectPath": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Bot/Monitora-Acoes.Bot.csproj"
+              },
               "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj": {
                 "projectPath": "/media/rafael/Arquivos/Projetos/Pessoais/dotnet/monitora-acoes/Monitora-Acoes.Crawler/Monitora-Acoes.Crawler.csproj"
               }
@@ -107,6 +168,10 @@
             "FluentScheduler": {
               "target": "Package",
               "version": "[5.5.1, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[16.0.2, )"
             }
           },
           "imports": [
