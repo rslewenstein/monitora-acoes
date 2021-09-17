@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Monitora_Acoes.Crawler
 {
-    public class GetDataCrawler
+    public class GetTextCrawler
     {
         public void Execute(string stocks)
         {
