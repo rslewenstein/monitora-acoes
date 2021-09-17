@@ -40,6 +40,8 @@ namespace Monitora_Acoes.Main
                 $"{text}"
                 );
             }
+
+            Console.WriteLine("Dados enviados ao telegram");
         }
     }
 }
