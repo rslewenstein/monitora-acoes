@@ -8,18 +8,21 @@ namespace Monitora_Acoes.Crawler
 {
     public class GetTextCrawler
     {
-        public void Execute(string stocks)
+        public List<string> Execute(string stocks)
         {
             var stock = CutText(stocks);
-
+            List<string> retStocks = new List<string>();
             foreach (var uniqueStock in stock)
-                CrawlerStocks(uniqueStock);
+                retStocks.Add(CrawlerStocks(uniqueStock));
+
+            return retStocks;
         }
 
-        public void CrawlerStocks(string stock)
+        public string CrawlerStocks(string stock)
         {
             using (WebClient wcli = new WebClient())
             {
+                string msg = null;
                 string site = wcli.DownloadString($"https://statusinvest.com.br/acoes/{stock}");
 
                 var html = new HtmlDocument();
@@ -29,7 +32,7 @@ namespace Monitora_Acoes.Crawler
                 externalDiv = html.DocumentNode.SelectSingleNode("//*[@id='main-2']/div[2]/div/div[1]/div/div[1]");
                 if (externalDiv == null)
                 {
-                    Console.WriteLine(stock + ": não encontrada.");
+                    msg = stock + ": não encontrada.";
                 }
                 else
                 {
@@ -39,9 +42,9 @@ namespace Monitora_Acoes.Crawler
                     foreach (var node in internalDiv)
                         price = node.InnerHtml.ToString();
 
-                    Console.WriteLine(stock + ": R$" + price);
+                    msg = stock + ": R$" + price;
                 }
-
+                return msg;
             }
         }
 

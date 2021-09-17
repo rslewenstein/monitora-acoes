@@ -3,9 +3,9 @@ using System.Threading;
 using Telegram.Bot;
 using FluentScheduler;
 using Monitora_Acoes.Crawler;
-using Monitora_Acoes.Bot;
 using Microsoft.Extensions.Configuration.Json;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Monitora_Acoes.Main
 {
@@ -17,8 +17,8 @@ namespace Monitora_Acoes.Main
         {
             var TelegramToken = @"settingsExt.txt";
             string token = File.ReadAllText(TelegramToken);
-            botcli = new TelegramBotClient(token);
 
+            botcli = new TelegramBotClient(token);
             botcli.OnMessage += BotClient_OnMessage;
             botcli.StartReceiving();
             Thread.Sleep(Timeout.Infinite);
@@ -27,44 +27,19 @@ namespace Monitora_Acoes.Main
 
         static void BotClient_OnMessage(object sender, Telegram.Bot.Args.MessageEventArgs e)
         {
-            // var stocks = "petr3, taee4, aaaa2, snpr3"; //e.Message.Text;
+            var stocks = "petr3, taee4, aaaa2, sapr3";
+            var gdc = new GetTextCrawler();
+            List<string> retStocks = new List<string>();
+            retStocks = gdc.Execute(stocks);
+
             var telegramId = e.Message.Chat.Id;
-
-            // while (string.IsNullOrEmpty(stocks))
-            // {
-            //     botcli.SendTextMessageAsync(
-            //         e.Message.Chat.Id,
-            //         $"Olá {e.Message.From.FirstName}, digite algum código."
-            //     );
-            // }
-
-            // if (!string.IsNullOrEmpty(stocks))
-            // {
-            // var gdc = new GetTextCrawler();
-            // string StopCrawler = stocks;
-
-            // while (StopCrawler != null)
-            // {
-            //     try
-            //     {
-            //         var ret = gdc.Execute(stocks);
-            //         botcli.SendTextMessageAsync(
-            //             e.Message.Chat.Id,
-            //             $"{ret}"
-            //         );
-            //         Thread.Sleep(30000); //30000
-            //     }
-            //     catch (Exception ex)
-            //     {
-            //         Console.WriteLine("Ops... " + ex.ToString());
-            //         StopCrawler = null;
-            //     }
-            // }
-            // }
-            botcli.SendTextMessageAsync(
+            foreach (var text in retStocks)
+            {
+                botcli.SendTextMessageAsync(
                 e.Message.Chat.Id,
-                $"Olá {e.Message.Chat.Id}, nome = {e.Message.From.FirstName}"
+                $"{text}"
                 );
+            }
         }
     }
 }
