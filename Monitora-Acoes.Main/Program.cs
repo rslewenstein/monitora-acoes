@@ -15,11 +15,11 @@ namespace Monitora_Acoes.Main
 
         static void Main(string[] args)
         {
-            var _File = @"settingsExt.txt";
-            string text = File.ReadAllText(_File);
-            botcli = new TelegramBotClient(text);
-            botcli.OnMessage += BotClient_OnMessage;
+            var TelegramToken = @"settingsExt.txt";
+            string token = File.ReadAllText(TelegramToken);
+            botcli = new TelegramBotClient(token);
 
+            botcli.OnMessage += BotClient_OnMessage;
             botcli.StartReceiving();
             Thread.Sleep(Timeout.Infinite);
             botcli.StopReceiving();
