@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Monitora-Acoes.Crawler\Monitora-Acoes.Crawler.csproj" />
+    <ProjectReference Include="..\Monitora-Acoes.Bot\Monitora-Acoes.Bot.csproj" />
   </ItemGroup>
 
 </Project>
