@@ -1,7 +1,5 @@
 using System.Net;
-using FluentScheduler;
 using HtmlAgilityPack;
-using System;
 using System.Collections.Generic;
 
 namespace Monitora_Acoes.Crawler
@@ -32,7 +30,7 @@ namespace Monitora_Acoes.Crawler
                 externalDiv = html.DocumentNode.SelectSingleNode("//*[@id='main-2']/div[2]/div/div[1]/div/div[1]");
                 if (externalDiv == null)
                 {
-                    msg = stock + ": não encontrada.";
+                    msg = stock + ": não encontrada."; //retornar como json
                 }
                 else
                 {
@@ -42,7 +40,7 @@ namespace Monitora_Acoes.Crawler
                     foreach (var node in internalDiv)
                         price = node.InnerHtml.ToString();
 
-                    msg = stock + ": R$" + price;
+                    msg = stock + ": R$" + price; //retornar como json
                 }
                 return msg;
             }

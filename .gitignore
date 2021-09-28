@@ -406,8 +406,6 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 settingsExt.json
 settingsExt.txt
-.db
-MonitStock.db
-MonitStock.db-journal
+anotacoes.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,visualstudio

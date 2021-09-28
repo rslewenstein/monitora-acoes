@@ -1,14 +1,8 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
-using FluentScheduler;
 using Monitora_Acoes.Crawler;
 using System.IO;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Monitora_Acoes.Bot
 {
@@ -17,8 +11,9 @@ namespace Monitora_Acoes.Bot
         public void SendMessageTelegram(string token)
         {
             string apiToken = token;
-            string chatId = "YOUR_CHAT_ID";
-            List<string> stocks = ProcessMessage(chatId);
+            var botProc = new BotProcess();
+            string chatId = botProc.GetChatId();
+            List<string> stocks = botProc.ProcessMessage(chatId);
 
             foreach (var stock in stocks)
             {
@@ -28,16 +23,5 @@ namespace Monitora_Acoes.Bot
                 Stream rs = request.GetResponse().GetResponseStream();
             }
         }
-
-        public List<string> ProcessMessage(string chatId)
-        {
-            var stocks = "petr3, taee4, aaaa2, sapr3";
-            var gdc = new GetTextCrawler();
-            List<string> retStocks = new List<string>();
-            String IdAux = chatId;
-            retStocks = gdc.Execute(stocks);
-            return retStocks;
-        }
-
     }
 }
