@@ -1,10 +1,10 @@
-namespace Monitora_Acoes.WebApi.Models
+namespace Monitora_Acoes.Domain
 {
-    public class StockMonitList
+    public class Stock
     {
-        public int Id { get; set; }
-        public int StockId { get; set; }
         public string ChatId { get; set; }
+        public string Acronym { get; set; }
+        public string StockName { get; set; }
         public string PriceInit { get; set; }
         public string PriceMin { get; set; }
         public string PriceMax { get; set; }
