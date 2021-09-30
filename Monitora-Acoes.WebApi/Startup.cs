@@ -11,7 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Monitora_Acoes.Data.Base;
 using Monitora_Acoes.Data.Interfaces;
+using Monitora_Acoes.Data.Interfaces.Base;
 using Monitora_Acoes.Data.Repositories;
 using Newtonsoft.Json.Serialization;
 
@@ -40,6 +42,7 @@ namespace Monitora_Acoes.WebApi
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
                 = new DefaultContractResolver());
 
+            services.AddSingleton<IBaseConnection, BaseConnection>();
             services.AddSingleton<IStocksDAO, StockDAO>();
         }
 

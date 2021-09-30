@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using Monitora_Acoes.Data.Interfaces;
+using Monitora_Acoes.Data.Interfaces.Base;
 using Monitora_Acoes.Domain;
 
 namespace Monitora_Acoes.Data.Repositories
@@ -10,22 +11,22 @@ namespace Monitora_Acoes.Data.Repositories
     public class StockDAO : IStocksDAO
     {
         private readonly IConfiguration _config;
-        public StockDAO(IConfiguration config)
+        private readonly IBaseConnection _baseconn;
+        public StockDAO(IConfiguration config, IBaseConnection baseconn)
         {
             _config = config;
+            _baseconn = baseconn;
         }
 
         public JsonResult ListAllStock()
         {
-            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
-            var dbList = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit").AsQueryable();
-            return new JsonResult(dbList);
+            var db = _baseconn.ConnectionDB().AsQueryable();
+            return new JsonResult(db);
         }
 
         public JsonResult ListStockByAcronym(string acronym)
         {
-            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
-            var db = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit")
+            var db = _baseconn.ConnectionDB()
             .Find(x => x.Acronym == acronym).FirstOrDefault();
             return new JsonResult(db);
         }
@@ -47,19 +48,17 @@ namespace Monitora_Acoes.Data.Repositories
 
         public List<string> GetChatId()
         {
-            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
-            var db = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit").AsQueryable();
+            var db = _baseconn.ConnectionDB().AsQueryable();
             List<string> listChatId = new List<string>();
             foreach (var item in db)
-            {
                 listChatId.Add(item.ChatId);
-            }
+
             return listChatId;
         }
+        
         public JsonResult GetStocksByChatId(string chatid)
         {
-            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
-            var db = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit")
+            var db = _baseconn.ConnectionDB()
             .Find(x => x.ChatId == chatid).FirstOrDefault();
             return new JsonResult(db);
         }
