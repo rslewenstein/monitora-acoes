@@ -17,7 +17,7 @@ namespace Monitora_Acoes.WebApi.Controllers
         }
 
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult GetStocks()
         {
             return new JsonResult(_stockdao.ListStock());
         }
