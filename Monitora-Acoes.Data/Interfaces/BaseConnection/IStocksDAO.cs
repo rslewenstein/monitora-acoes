@@ -6,7 +6,7 @@ namespace Monitora_Acoes.Data.Interfaces.BaseConnection
     {
         void InsertStock(Stock stock);
         bool UpdateStock(Stock stock);
-        bool DeleteStock(string name);
+        bool DeleteStock(string id);
         List<Stock> ListStock();
     }
 }

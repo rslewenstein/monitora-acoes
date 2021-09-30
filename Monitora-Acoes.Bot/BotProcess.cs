@@ -20,7 +20,7 @@ namespace Monitora_Acoes.Bot
 
         public string GetChatId() // Irá pegar o chatId
         {
-            string chatid = "CHAT_ID";
+            string chatid = "1714756681";
 
             return chatid;
         }
