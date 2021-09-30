@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Monitora_Acoes.Data.Interfaces;
+using Monitora_Acoes.Data.Repositories;
 using Newtonsoft.Json.Serialization;
 
 namespace Monitora_Acoes.WebApi
@@ -37,6 +39,8 @@ namespace Monitora_Acoes.WebApi
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
                 = new DefaultContractResolver());
+
+            services.AddSingleton<IStocksDAO, StockDAO>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,11 +14,10 @@ namespace Monitora_Acoes.Domain
         public string DateInit { get; set; }
         public string Status { get; set; } = "1";
 
-        public Stock(ObjectId id, string chatId, string acronym, string stockName,
+        public Stock(string chatId, string acronym, string stockName,
                      string priceInit, string priceMin, string priceMax,
                      string dateInit, string status)
         {
-            this.Id = id;
             this.ChatId = chatId;
             this.Acronym = acronym;
             this.StockName = stockName;

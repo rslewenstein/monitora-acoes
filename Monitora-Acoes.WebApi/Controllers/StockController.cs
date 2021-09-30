@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
+using Monitora_Acoes.Data.Interfaces;
 using Monitora_Acoes.Domain;
 
 namespace Monitora_Acoes.WebApi.Controllers
@@ -9,18 +10,16 @@ namespace Monitora_Acoes.WebApi.Controllers
     [ApiController]
     public class StockController : ControllerBase
     {
-        private readonly IConfiguration _config;
-        public StockController(IConfiguration config)
+        private readonly IStocksDAO _stockdao;
+        public StockController(IStocksDAO stockdao)
         {
-            _config = config;
+            _stockdao = stockdao;
         }
 
         [HttpGet]
         public JsonResult Get()
         {
-            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
-            var dbList = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit").AsQueryable();
-            return new JsonResult(dbList);
+            return new JsonResult(_stockdao.ListStock());
         }
     }
 }
