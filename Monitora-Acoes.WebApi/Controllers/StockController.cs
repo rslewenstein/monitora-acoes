@@ -1,8 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using MongoDB.Driver;
 using Monitora_Acoes.Data.Interfaces;
-using Monitora_Acoes.Domain;
 
 namespace Monitora_Acoes.WebApi.Controllers
 {

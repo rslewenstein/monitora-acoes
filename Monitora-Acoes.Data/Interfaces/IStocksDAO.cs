@@ -11,5 +11,8 @@ namespace Monitora_Acoes.Data.Interfaces
         bool DeleteStock(string id);
         JsonResult ListAllStock();
         JsonResult ListStockByAcronym(string acronym);
+
+        List<string> GetChatId();
+        JsonResult GetStocksByChatId(string chatid);
     }
 }

@@ -14,15 +14,6 @@ namespace Monitora_Acoes.Data.Repositories
         {
             _config = config;
         }
-        public bool DeleteStock(string id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void InsertStock(Stock stock)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public JsonResult ListAllStock()
         {
@@ -39,9 +30,38 @@ namespace Monitora_Acoes.Data.Repositories
             return new JsonResult(db);
         }
 
+        public void InsertStock(Stock stock)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public bool UpdateStock(Stock stock)
         {
             throw new System.NotImplementedException();
+        }
+
+        public bool DeleteStock(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<string> GetChatId()
+        {
+            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
+            var db = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit").AsQueryable();
+            List<string> listChatId = new List<string>();
+            foreach (var item in db)
+            {
+                listChatId.Add(item.ChatId);
+            }
+            return listChatId;
+        }
+        public JsonResult GetStocksByChatId(string chatid)
+        {
+            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
+            var db = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit")
+            .Find(x => x.ChatId == chatid).FirstOrDefault();
+            return new JsonResult(db);
         }
     }
 }
