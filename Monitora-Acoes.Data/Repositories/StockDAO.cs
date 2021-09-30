@@ -24,11 +24,19 @@ namespace Monitora_Acoes.Data.Repositories
             throw new System.NotImplementedException();
         }
 
-        public JsonResult ListStock()
+        public JsonResult ListAllStock()
         {
             MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
             var dbList = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit").AsQueryable();
             return new JsonResult(dbList);
+        }
+
+        public JsonResult ListStockByAcronym(string acronym)
+        {
+            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
+            var db = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit")
+            .Find(x => x.Acronym == acronym).FirstOrDefault();
+            return new JsonResult(db);
         }
 
         public bool UpdateStock(Stock stock)

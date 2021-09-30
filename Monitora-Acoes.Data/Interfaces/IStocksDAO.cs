@@ -9,6 +9,7 @@ namespace Monitora_Acoes.Data.Interfaces
         void InsertStock(Stock stock);
         bool UpdateStock(Stock stock);
         bool DeleteStock(string id);
-        JsonResult ListStock();
+        JsonResult ListAllStock();
+        JsonResult ListStockByAcronym(string acronym);
     }
 }
