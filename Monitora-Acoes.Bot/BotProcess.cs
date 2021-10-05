@@ -22,7 +22,6 @@ namespace Monitora_Acoes.Bot
             //var stocks = GetStockByChatId(chatId);
             var gdc = new GetTextCrawler();
             List<string> retStocks = new List<string>();
-            String IdAux = chatId;
             retStocks = gdc.Execute(stocks);
             return retStocks;
         }
@@ -34,10 +33,9 @@ namespace Monitora_Acoes.Bot
             return joinedString;
         }
 
-        public string GetChatId() // Irá pegar o chatId
+        public string GetChatId()
         {
-            string chatid = "YOUR_CHATID";
-
+            var chatid = _stocksDAO.GetChatId();
             return chatid;
         }
 

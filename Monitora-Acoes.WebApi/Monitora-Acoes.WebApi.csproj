@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Monitora-Acoes.Data\Monitora-Acoes.Data.csproj" />
+    <ProjectReference Include="..\Monitora-Acoes.Worker\Monitora-Acoes.Worker.csproj" />
   </ItemGroup>
 
 </Project>

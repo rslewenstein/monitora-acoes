@@ -1,8 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>dotnet-Monitora_Acoes.Worker-02B22626-CB90-4DE0-A8C0-108B4095F729</UserSecretsId>
     <RootNamespace>Monitora_Acoes.Worker</RootNamespace>
   </PropertyGroup>
 

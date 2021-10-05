@@ -4,10 +4,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Monitora_Acoes.Bot;
+using Monitora_Acoes.Bot.Interfaces;
 using Monitora_Acoes.Data.Base;
 using Monitora_Acoes.Data.Interfaces;
 using Monitora_Acoes.Data.Interfaces.Base;
 using Monitora_Acoes.Data.Repositories;
+using Monitora_Acoes.Interfaces.Worker;
+using Monitora_Acoes.Worker;
+using Monitora_Acoes.Worker.Interfaces;
 using Newtonsoft.Json.Serialization;
 
 namespace Monitora_Acoes.WebApi
@@ -37,6 +42,10 @@ namespace Monitora_Acoes.WebApi
 
             services.AddSingleton<IBaseConnection, BaseConnection>();
             services.AddSingleton<IStocksDAO, StockDAO>();
+            services.AddSingleton<IWorker, WorkerService>();
+            services.AddSingleton<IProcessStock, ProcessStock>();
+            services.AddSingleton<IBotSendMessage, BotSendMessage>();
+            services.AddSingleton<IBotProcess, BotProcess>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
