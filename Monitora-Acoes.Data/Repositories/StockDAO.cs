@@ -18,10 +18,20 @@ namespace Monitora_Acoes.Data.Repositories
             _baseconn = baseconn;
         }
 
-        public JsonResult ListAllStock()
+        public JsonResult ListAllStockJSON()
         {
             var db = _baseconn.ConnectionDB().AsQueryable();
             return new JsonResult(db);
+        }
+
+        public List<string> ListAllStock()
+        {
+            var db = _baseconn.ConnectionDB().AsQueryable();
+            List<string> liststocks = new List<string>();
+            foreach (var item in db)
+                liststocks.Add(item.Acronym);
+
+            return liststocks;
         }
 
         public JsonResult ListStockByAcronym(string acronym)
@@ -55,12 +65,17 @@ namespace Monitora_Acoes.Data.Repositories
 
             return listChatId;
         }
-        
+
         public JsonResult GetStocksByChatId(string chatid)
         {
             var db = _baseconn.ConnectionDB()
             .Find(x => x.ChatId == chatid).FirstOrDefault();
             return new JsonResult(db);
+        }
+
+        string IStocksDAO.GetChatId()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

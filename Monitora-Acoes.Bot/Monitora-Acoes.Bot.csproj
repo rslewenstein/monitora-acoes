@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Monitora-Acoes.Crawler\Monitora-Acoes.Crawler.csproj" />
+    <ProjectReference Include="..\Monitora-Acoes.Data\Monitora-Acoes.Data.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -10,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="Telegram.Bot" Version="16.0.2" />
   </ItemGroup>

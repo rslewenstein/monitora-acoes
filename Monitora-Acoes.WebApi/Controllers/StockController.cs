@@ -16,7 +16,7 @@ namespace Monitora_Acoes.WebApi.Controllers
         [HttpGet]
         public JsonResult GetAllStocks()
         {
-            return new JsonResult(_stockdao.ListAllStock());
+            return new JsonResult(_stockdao.ListAllStockJSON());
         }
 
         [HttpGet("{acronym}")]

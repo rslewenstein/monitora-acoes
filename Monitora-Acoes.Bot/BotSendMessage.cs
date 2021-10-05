@@ -3,17 +3,22 @@ using Monitora_Acoes.Crawler;
 using System.IO;
 using System.Collections.Generic;
 using System.Net;
+using Monitora_Acoes.Bot.Interfaces;
 
 namespace Monitora_Acoes.Bot
 {
-    public class BotSendMessage
+    public class BotSendMessage : IBotSendMessage
     {
+        private readonly IBotProcess _botProc;
+        public BotSendMessage(IBotProcess botProc)
+        {
+            _botProc = botProc;
+        }
         public void SendMessageTelegram(string token)
         {
             string apiToken = token;
-            var botProc = new BotProcess();
-            string chatId = botProc.GetChatId();
-            List<string> stocks = botProc.ProcessMessage(chatId);
+            string chatId = _botProc.GetChatId();
+            List<string> stocks = _botProc.ProcessMessage(chatId);
 
             foreach (var stock in stocks)
             {
