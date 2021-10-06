@@ -28,11 +28,7 @@ namespace Monitora_Acoes.Bot
             foreach (var item in retAux)
             {
                 stockAux = gdc.Execute(item.ToString());
-                if (stockAux.Contains("não"))
-                {
-                    msg.Add(stockAux);
-                }
-                else
+                if (!stockAux.Contains("não encontrada."))
                 {
                     retPriceMin = GetPriceMinByStock(item.ToString(), stockAux);
                     retPriceMax = GetPriceMaxByStock(item.ToString(), stockAux);
