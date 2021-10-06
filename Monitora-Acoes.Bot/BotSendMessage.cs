@@ -18,7 +18,7 @@ namespace Monitora_Acoes.Bot
         {
             string apiToken = token;
             string chatId = _botProc.GetChatId();
-            List<string> stocks = _botProc.ProcessMessage(chatId);
+            List<string> stocks = _botProc.ProcessMessage();
 
             foreach (var stock in stocks)
             {
