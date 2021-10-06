@@ -33,10 +33,10 @@ namespace Monitora_Acoes.Bot
                     retPriceMin = GetPriceMinByStock(item.ToString(), stockAux);
                     retPriceMax = GetPriceMaxByStock(item.ToString(), stockAux);
                     if (!string.IsNullOrEmpty(retPriceMin))
-                        msg.Add("A ação " + item.ToString().ToUpper() + " está com o preço Mínimo de: " + retPriceMin);
+                        msg.Add("A ação " + item.ToString().ToUpper() + " atingiu o preço mínimo setado de: " + retPriceMin);
 
                     if (!string.IsNullOrEmpty(retPriceMax))
-                        msg.Add("A ação " + item.ToString().ToUpper() + " está com o preço Máximo de: " + retPriceMax);
+                        msg.Add("A ação " + item.ToString().ToUpper() + " atingiu o preço máximo setado de: " + retPriceMax);
                 }
 
             }
@@ -52,7 +52,7 @@ namespace Monitora_Acoes.Bot
 
         public string GetChatId()
         {
-            var chatid = "YOUR_CHATID";//_stocksDAO.GetChatId();
+            var chatid = _stocksDAO.GetChatId();
             return chatid;
         }
 

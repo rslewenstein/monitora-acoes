@@ -56,26 +56,11 @@ namespace Monitora_Acoes.Data.Repositories
             throw new System.NotImplementedException();
         }
 
-        public List<string> GetChatId()
-        {
-            var db = _baseconn.ConnectionDB().AsQueryable();
-            List<string> listChatId = new List<string>();
-            foreach (var item in db)
-                listChatId.Add(item.ChatId);
-
-            return listChatId;
-        }
-
-        public JsonResult GetStocksByChatId(string chatid)
-        {
-            var db = _baseconn.ConnectionDB()
-            .Find(x => x.ChatId == chatid).FirstOrDefault();
-            return new JsonResult(db);
-        }
-
         string IStocksDAO.GetChatId()
         {
-            throw new System.NotImplementedException();
+            var db = _baseconn.ConnectionDB().AsQueryable().FirstOrDefault();
+            string chatid = db.ChatId;
+            return chatid;
         }
 
         public string GetPriceMin(string stock)
