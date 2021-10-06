@@ -21,10 +21,15 @@ namespace Monitora_Acoes.Worker
             await SearchStocks();
         }
 
-        public Task SearchStocks()
+        public async Task SearchStocks()
         {
             _bot.SendMessageTelegram(token);
-            return null;
         }
+
+        // public Task SearchStocks()
+        // {
+        //     _bot.SendMessageTelegram(token);
+        //     return null;
+        // }
     }
 }

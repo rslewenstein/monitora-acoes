@@ -1,8 +1,6 @@
 using System;
 using Monitora_Acoes.Crawler;
-using System.IO;
 using System.Collections.Generic;
-using System.Net;
 using Monitora_Acoes.Bot.Interfaces;
 using Monitora_Acoes.Data.Interfaces;
 

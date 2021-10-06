@@ -1,5 +1,4 @@
 using System;
-using Monitora_Acoes.Crawler;
 using System.IO;
 using System.Collections.Generic;
 using System.Net;
@@ -27,6 +26,8 @@ namespace Monitora_Acoes.Bot
                 WebRequest request = WebRequest.Create(urlString);
                 Stream rs = request.GetResponse().GetResponseStream();
             }
+
+
         }
     }
 }
