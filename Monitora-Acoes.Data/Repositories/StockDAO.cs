@@ -77,5 +77,27 @@ namespace Monitora_Acoes.Data.Repositories
         {
             throw new System.NotImplementedException();
         }
+
+        public string GetPriceMin(string stock)
+        {
+            var db = _baseconn.ConnectionDB()
+            .Find(x => x.Acronym == stock);
+            string aux = null;
+            foreach (var item in db.ToList())
+                aux = item.PriceMin;
+
+            return aux;
+        }
+
+        public string GetPriceMax(string stock)
+        {
+            var db = _baseconn.ConnectionDB()
+            .Find(x => x.Acronym == stock);
+            string aux = null;
+            foreach (var item in db.ToList())
+                aux = item.PriceMax;
+
+            return aux;
+        }
     }
 }

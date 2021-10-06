@@ -15,5 +15,7 @@ namespace Monitora_Acoes.Data.Interfaces
 
         string GetChatId();
         JsonResult GetStocksByChatId(string chatid);
+        string GetPriceMin(string stock);
+        string GetPriceMax(string stock);
     }
 }

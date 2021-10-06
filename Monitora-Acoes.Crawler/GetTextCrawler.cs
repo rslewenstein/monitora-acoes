@@ -6,12 +6,12 @@ namespace Monitora_Acoes.Crawler
 {
     public class GetTextCrawler
     {
-        public List<string> Execute(string stocks)
+        public string Execute(string stocks)
         {
             var stock = CutText(stocks);
-            List<string> retStocks = new List<string>();
+            string retStocks = null;
             foreach (var uniqueStock in stock)
-                retStocks.Add(CrawlerStocks(uniqueStock));
+                retStocks = CrawlerStocks(uniqueStock);
 
             return retStocks;
         }

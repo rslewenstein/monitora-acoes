@@ -20,26 +20,32 @@ namespace Monitora_Acoes.Bot
         {
             var stocks = GetListStocks();
             var gdc = new GetTextCrawler();
-            List<string> stockAux = new List<string>();
+            string stockAux = null;
             var retAux = CutText(stocks);
+            string retPriceMin = null;
+            string retPriceMax = null;
+            List<string> msg = new List<string>();
             foreach (var item in retAux)
             {
                 stockAux = gdc.Execute(item.ToString());
-                var t = GetPriceMinByStock(item.ToString());
+                if (stockAux.Contains("não"))
+                {
+                    msg.Add(stockAux);
+                }
+                else
+                {
+                    retPriceMin = GetPriceMinByStock(item.ToString(), stockAux);
+                    retPriceMax = GetPriceMaxByStock(item.ToString(), stockAux);
+                    if (!string.IsNullOrEmpty(retPriceMin))
+                        msg.Add("A ação " + item.ToString().ToUpper() + " está com o preço Mínimo de: " + retPriceMin);
+
+                    if (!string.IsNullOrEmpty(retPriceMax))
+                        msg.Add("A ação " + item.ToString().ToUpper() + " está com o preço Máximo de: " + retPriceMax);
+                }
+
             }
-            // pegar as ações no banco
-            // pegar o preço atual
-            // vai comparar com o preço min
-            // vai comparar com o preço max
-            // se encontrar algo no min ou no max, chama o gdc.Execute
-            // var gdc = new GetTextCrawler();
-            List<string> retStocks = new List<string>();
-            //retStocks = gdc.Execute(stocks);
-            return retStocks;
+            return msg;
         }
-        // **********************************************************
-        // Vai primeiro verificar a ação no site. 
-        // Se estiver com o preço min ou max, vai pegar o id e enviar
 
         public string GetListStocks()
         {
@@ -50,28 +56,49 @@ namespace Monitora_Acoes.Bot
 
         public string GetChatId()
         {
-            var chatid = "";//_stocksDAO.GetChatId();
+            var chatid = "YOUR_CHATID";//_stocksDAO.GetChatId();
             return chatid;
         }
 
-        public string GetPriceMinByStock(string stock)
+        public string GetPriceMinByStock(string stock, string stockPrice)
         {
+            var retAux = CutPrice(stockPrice);
+            var priceNow = retAux[1].ToString();
+            string priceMin = _stocksDAO.GetPriceMin(stock);
+            string msg = null;
+            if (Convert.ToDouble(priceNow) <= Convert.ToDouble(priceMin))
+                msg = priceNow;
 
-            // vai fazer um laço comparando o preço minimo e vai retornar msg com o preço se encontrar
-            return null;
+            return msg;
         }
 
-        public string GetPriceMaxByStock(string stock)
+        public string GetPriceMaxByStock(string stock, string stockPrice)
         {
+            var retAux = CutPrice(stockPrice);
+            var priceNow = retAux[1].ToString();
+            string priceMax = _stocksDAO.GetPriceMax(stock);
+            string msg = null;
+            if (Convert.ToDouble(priceNow) >= Convert.ToDouble(priceMax))
+                msg = priceNow;
 
-            // vai fazer um laço comparando o preço maximo e vai retornar msg com o preço se encontrar
-            return null;
+            return msg;
         }
 
         public List<string> CutText(string stocksList)
         {
             List<string> ret = new List<string>();
             string[] stock = stocksList.Split(',');
+
+            foreach (var item in stock)
+                ret.Add(item.Trim());
+
+            return ret;
+        }
+
+        public List<string> CutPrice(string stocksList)
+        {
+            List<string> ret = new List<string>();
+            string[] stock = stocksList.Split('$');
 
             foreach (var item in stock)
                 ret.Add(item.Trim());
