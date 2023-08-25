@@ -1,10 +1,11 @@
 using System.Net;
 using HtmlAgilityPack;
 using System.Collections.Generic;
+using Monitora_Acoes.Crawler.Interfaces;
 
 namespace Monitora_Acoes.Crawler
 {
-    public class GetTextCrawler
+    public class GetTextCrawler : IGetTextCrawler
     {
         public string Execute(string stocks)
         {
@@ -16,7 +17,7 @@ namespace Monitora_Acoes.Crawler
             return retStocks;
         }
 
-        public string CrawlerStocks(string stock)
+        private string CrawlerStocks(string stock)
         {
             using (WebClient wcli = new WebClient())
             {
@@ -46,7 +47,7 @@ namespace Monitora_Acoes.Crawler
             }
         }
 
-        public List<string> CutText(string stocksList)
+        private List<string> CutText(string stocksList)
         {
             List<string> ret = new List<string>();
             string[] stock = stocksList.Split(',');

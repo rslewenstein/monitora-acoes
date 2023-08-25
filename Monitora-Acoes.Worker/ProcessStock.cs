@@ -16,7 +16,7 @@ namespace Monitora_Acoes.Worker
         private static string TelegramToken = @"settingsExt.txt";
         private static string token = File.ReadAllText(TelegramToken);
 
-        public async Task Executar()
+        public async Task ExecuteProcess()
         {
             await SearchStocks();
         }

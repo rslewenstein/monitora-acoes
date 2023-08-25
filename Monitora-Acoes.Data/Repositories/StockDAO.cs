@@ -56,7 +56,7 @@ namespace Monitora_Acoes.Data.Repositories
             throw new System.NotImplementedException();
         }
 
-        string IStocksDAO.GetChatId()
+        public string GetChatId()
         {
             var db = _baseconn.ConnectionDB().AsQueryable().FirstOrDefault();
             string chatid = db.ChatId;

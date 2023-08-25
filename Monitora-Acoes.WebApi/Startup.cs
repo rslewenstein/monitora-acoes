@@ -13,6 +13,8 @@ using Monitora_Acoes.Data.Repositories;
 using Monitora_Acoes.Interfaces.Worker;
 using Monitora_Acoes.Worker;
 using Monitora_Acoes.Worker.Interfaces;
+using Monitora_Acoes.Crawler.Interfaces;
+using Monitora_Acoes.Crawler;
 using Newtonsoft.Json.Serialization;
 
 namespace Monitora_Acoes.WebApi
@@ -46,6 +48,7 @@ namespace Monitora_Acoes.WebApi
             services.AddSingleton<IProcessStock, ProcessStock>();
             services.AddSingleton<IBotSendMessage, BotSendMessage>();
             services.AddSingleton<IBotProcess, BotProcess>();
+            services.AddSingleton<IGetTextCrawler, GetTextCrawler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

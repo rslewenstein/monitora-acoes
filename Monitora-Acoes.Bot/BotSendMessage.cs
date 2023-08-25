@@ -16,7 +16,7 @@ namespace Monitora_Acoes.Bot
         public void SendMessageTelegram(string token)
         {
             string apiToken = token;
-            string chatId = _botProc.GetChatId();
+            string chatId = _botProc.GetTelegramChatId();
             List<string> stocks = _botProc.ProcessMessage();
 
             foreach (var stock in stocks)

@@ -5,6 +5,6 @@ namespace Monitora_Acoes.Worker.Interfaces
     public interface IProcessStock
     {
         Task SearchStocks();
-        Task Executar();
+        Task ExecuteProcess();
     }
 }

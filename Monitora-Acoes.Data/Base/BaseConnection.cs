@@ -14,9 +14,18 @@ namespace Monitora_Acoes.Data.Base
         }
         public IMongoCollection<Stock> ConnectionDB()
         {
-            MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
-            IMongoCollection<Stock> ret = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit");
-            return ret;
+            IMongoCollection<Stock> result = null;
+            try
+            {
+                MongoClient dbCli = new MongoClient(_config.GetConnectionString("MongoStockCon"));
+                result = dbCli.GetDatabase("stockdb").GetCollection<Stock>("stockmonit");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Erro ao conectar ao banco: " + ex.Message);
+            }
+            
+            return result;
         }
     }
 }
