@@ -41,7 +41,7 @@ namespace Monitora_Acoes.Bot
             return msg;
         }
 
-        public string GetListStocks()
+        private string GetListStocks()
         {
             var listReturn = _stocksDAO.ListAllStock();
             string joinedString = string.Join(",", listReturn);
@@ -54,7 +54,7 @@ namespace Monitora_Acoes.Bot
             return chatid;
         }
 
-        public string GetPriceMinByStock(string stock, string stockPrice)
+        private string GetPriceMinByStock(string stock, string stockPrice)
         {
             var retAux = CutPrice(stockPrice);
             var priceNow = retAux[1].ToString();
@@ -66,7 +66,7 @@ namespace Monitora_Acoes.Bot
             return msg;
         }
 
-        public string GetPriceMaxByStock(string stock, string stockPrice)
+        private string GetPriceMaxByStock(string stock, string stockPrice)
         {
             var retAux = CutPrice(stockPrice);
             var priceNow = retAux[1].ToString();
@@ -78,7 +78,7 @@ namespace Monitora_Acoes.Bot
             return msg;
         }
 
-        public List<string> CutText(string stocksList)
+        private List<string> CutText(string stocksList)
         {
             List<string> ret = new List<string>();
             string[] stock = stocksList.Split(',');
@@ -89,7 +89,7 @@ namespace Monitora_Acoes.Bot
             return ret;
         }
 
-        public List<string> CutPrice(string stocksList)
+        private List<string> CutPrice(string stocksList)
         {
             List<string> ret = new List<string>();
             string[] stock = stocksList.Split('$');
