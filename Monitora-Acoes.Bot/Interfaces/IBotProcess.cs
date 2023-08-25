@@ -6,7 +6,7 @@ namespace Monitora_Acoes.Bot.Interfaces
     {
         List<string> ProcessMessage();
         string GetListStocks();
-        string GetChatId();
+        string GetTelegramChatId();
         string GetPriceMinByStock(string stock, string stockPrice);
         string GetPriceMaxByStock(string stock, string stockPrice);
     }

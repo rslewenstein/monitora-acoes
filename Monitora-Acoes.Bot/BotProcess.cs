@@ -48,7 +48,7 @@ namespace Monitora_Acoes.Bot
             return joinedString;
         }
 
-        public string GetChatId()
+        public string GetTelegramChatId()
         {
             var chatid = _stocksDAO.GetChatId();
             return chatid;
