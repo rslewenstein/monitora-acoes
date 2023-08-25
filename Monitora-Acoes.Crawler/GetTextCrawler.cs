@@ -16,7 +16,7 @@ namespace Monitora_Acoes.Crawler
             return retStocks;
         }
 
-        public string CrawlerStocks(string stock)
+        private string CrawlerStocks(string stock)
         {
             using (WebClient wcli = new WebClient())
             {
@@ -46,7 +46,7 @@ namespace Monitora_Acoes.Crawler
             }
         }
 
-        public List<string> CutText(string stocksList)
+        private List<string> CutText(string stocksList)
         {
             List<string> ret = new List<string>();
             string[] stock = stocksList.Split(',');
