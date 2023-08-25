@@ -27,7 +27,7 @@ namespace Monitora_Acoes.Worker
             {
                 // _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 // await Task.Delay(1000, stoppingToken);
-                await _processStock.Executar();
+                await _processStock.ExecuteProcess();
                 await Task.Delay(20000);
             }
         }
