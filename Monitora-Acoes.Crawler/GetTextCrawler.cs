@@ -1,10 +1,11 @@
 using System.Net;
 using HtmlAgilityPack;
 using System.Collections.Generic;
+using Monitora_Acoes.Crawler.Interfaces;
 
 namespace Monitora_Acoes.Crawler
 {
-    public class GetTextCrawler
+    public class GetTextCrawler : IGetTextCrawler
     {
         public string Execute(string stocks)
         {

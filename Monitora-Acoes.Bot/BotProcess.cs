@@ -1,5 +1,6 @@
 using System;
 using Monitora_Acoes.Crawler;
+using Monitora_Acoes.Crawler.Interfaces;
 using System.Collections.Generic;
 using Monitora_Acoes.Bot.Interfaces;
 using Monitora_Acoes.Data.Interfaces;
@@ -9,15 +10,16 @@ namespace Monitora_Acoes.Bot
     public class BotProcess : IBotProcess
     {
         private readonly IStocksDAO _stocksDAO;
-        public BotProcess(IStocksDAO stocksDAO)
+        private readonly IGetTextCrawler _getTextCrawler;
+        public BotProcess(IStocksDAO stocksDAO, IGetTextCrawler getTextCrawler)
         {
             _stocksDAO = stocksDAO;
+            _getTextCrawler = getTextCrawler;
         }
 
         public List<string> ProcessMessage()
         {
             var stocks = GetListStocks();
-            var gdc = new GetTextCrawler();
             string stockAux = null;
             var retAux = CutText(stocks);
             string retPriceMin = null;
@@ -25,7 +27,7 @@ namespace Monitora_Acoes.Bot
             List<string> msg = new List<string>();
             foreach (var item in retAux)
             {
-                stockAux = gdc.Execute(item.ToString());
+                stockAux = _getTextCrawler.Execute(item.ToString());
                 if (!stockAux.Contains("não encontrada."))
                 {
                     retPriceMin = GetPriceMinByStock(item.ToString(), stockAux);
